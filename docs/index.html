@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sloth Mode — Do less. Get it done.</title>
+<meta name="description" content="Sloth Mode is a local web app for the gloriously lazy. Paste anything messy — a local AI classifies it and does the work. 100% on your laptop: no API keys, no accounts, no data leaves your machine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emerald:#059669; --emerald-light:#10b981; --emerald-dark:#047857;
+    --bg:#f8fafc; --card:#ffffff; --subtle:#f1f5f9;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
+    --glow:rgba(16,185,129,.15);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(circle at 50% 0%, rgba(16,185,129,.12) 0%, rgba(248,250,252,0) 55%);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:24px 20px 64px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:10px 0 26px}
+  .brand{font-weight:800;font-size:20px}
+  .brand small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--muted)}
+  a.btn{display:inline-block;background:linear-gradient(135deg,var(--emerald),var(--emerald-light));color:#fff;text-decoration:none;padding:11px 20px;border-radius:7px;font-weight:700;font-size:14px}
+  a.btn.light{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+  .hero{text-align:center;padding:36px 0 14px}
+  .hero .sloth{font-size:72px}
+  .badge{display:inline-block;background:var(--glow);border:1px solid rgba(16,185,129,.24);color:var(--emerald-dark);font-size:13px;font-weight:700;padding:6px 14px;border-radius:7px;margin:12px 0}
+  .hero h1{font-size:52px;line-height:1.1;margin:8px 0 14px;font-weight:800}
+  .hero h1 span{background:linear-gradient(135deg,var(--emerald),var(--emerald-light));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--muted);font-size:18px;max-width:620px;margin:0 auto 26px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:7px;padding:26px;margin:22px 0;box-shadow:0 4px 20px -2px rgba(15,23,42,.04)}
+  h2{font-size:24px;margin-bottom:12px;font-weight:800}
+  table{width:100%;border-collapse:collapse;font-size:16px}
+  td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .step{background:var(--subtle);border-radius:7px;padding:16px;font-size:15px}
+  .step b{display:block;margin-bottom:6px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .chip{background:var(--glow);border:1px solid rgba(16,185,129,.24);border-radius:7px;padding:8px 14px;font-size:14px;font-weight:600}
+  .chip.mono{font-family:'JetBrains Mono',monospace}
+  .levels{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .level{background:var(--subtle);border-radius:7px;padding:8px 14px;font-size:14px;font-family:'JetBrains Mono',monospace}
+  code{font-family:'JetBrains Mono',monospace;background:var(--subtle);padding:2px 7px;border-radius:6px;font-size:14px}
+  pre{background:#0f172a;color:#f1f5f9;border-radius:7px;padding:16px;overflow-x:auto;font-size:14px;margin-top:10px;line-height:1.7}
+  .muted{color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:14px;margin-top:44px}
+  @media (max-width:640px){ .hero h1{font-size:38px} .steps{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="brand">🦥 Sloth Mode
+      <small>AUTONOMOUS LOCAL AI ENGINE</small>
+    </div>
+    <a class="btn" href="https://github.com/captaincpr9-bot/Sloth-Ai">View on GitHub</a>
+  </header>
+
+  <div class="hero">
+    <div class="sloth">🦥</div>
+    <div class="badge">⚡ Autonomous Local AI Engine</div>
+    <h1>Do less. <span>Get it done.</span></h1>
+    <p>Paste anything messy — an email, a giant chat thread, a brain-dump to-do list, or buggy code. Sloth Mode automatically identifies the intent and performs the heavy lifting on your machine.</p>
+    <a class="btn" href="https://github.com/captaincpr9-bot/Sloth-Ai">Get the code — it's open source</a>
+    <a class="btn light" href="#run">Run it yourself ↓</a>
+  </div>
+
+  <div class="card">
+    <h2>How it opens</h2>
+    <p>The app greets you with a landing hero — a meditating sloth animation — and one button: <b>Open Sloth Workspace</b>. No sign-up, no setup wizard. Scroll down and the tool is right there.</p>
+  </div>
+
+  <div class="card">
+    <h2>The Workspace</h2>
+    <p>One box labelled <b>“What is the messy thing?”</b> — paste up to 30,000 characters, press <b>Let the sloth handle it</b> (or <code>Ctrl + Enter</code>). You never pick a task type; the local model classifies your paste itself.</p>
+    <div class="chips">
+      <span class="chip">🎙️ Too Lazy to Type — voice dictation</span>
+      <span class="chip">🤖 Model selector — pick any local Ollama model</span>
+      <span class="chip">✨ Zero Prompts badge</span>
+    </div>
+    <p style="margin-top:16px"><b>Sloth Persona</b> — choose how the sloth talks back:</p>
+    <div class="chips">
+      <span class="chip">⚡ Ultra Lazy — minimum words, zero fluff</span>
+      <span class="chip">💼 Corporate — polished, professional</span>
+      <span class="chip">📋 Detailed — step-by-step breakdown</span>
+      <span class="chip">😌 Chill — friendly, relaxed</span>
+    </div>
+    <p style="margin-top:16px">Need an example to test? One tap loads a sample:</p>
+    <div class="chips">
+      <span class="chip">✉️ Inbound Email</span>
+      <span class="chip">💬 Group Chat Thread</span>
+      <span class="chip">🧠 Chaotic Brain-Dump</span>
+      <span class="chip">🐛 Buggy Python Code</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>What you paste → what you get</h2>
+    <table>
+      <tr><td>✉️ An email / message</td><td>A ready-to-send reply draft</td></tr>
+      <tr><td>💬 A long text / chat thread</td><td>A short summary + action items</td></tr>
+      <tr><td>🧠 A messy to-do list</td><td>A clean, prioritised plan</td></tr>
+      <tr><td>🐛 Code with a bug</td><td>A suggested fix, explained in one line</td></tr>
+    </table>
+    <p class="muted" style="margin-top:12px">Every finished task tells you how many minutes you saved — and awards Sloth XP (10 XP per minute). The minutes are an honest rough estimate, not a measurement.</p>
+    <div class="levels">
+      <span class="level">🦥 Baby Sloth · 0 XP</span>
+      <span class="level">🛋️ Couch Sloth · 200 XP</span>
+      <span class="level">🧘 Zen Sloth · 600 XP</span>
+      <span class="level">👑 Legendary Sloth · 1,500 XP</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🗄️ Lazy Vault</h2>
+    <p>Every result is auto-saved to the <b>Lazy Vault</b> — a slide-over history drawer. Restore an old result, copy it, or delete it. It lives only in your browser's <code>localStorage</code> (offline), and one <b>Clear Vault</b> button wipes it all. No database, no server, no tracking.</p>
+  </div>
+
+  <div class="card">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><b>1 · You paste</b>Anything messy. No task type to pick, no prompt to write.</div>
+      <div class="step"><b>2 · The sloth classifies</b>A local model reads your paste and works out what kind of thing it is — reply, summary, plan or fix.</div>
+      <div class="step"><b>3 · The work is done</b>It runs the matching task, shows your time saved and XP, and files the result in the Vault.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>100% local. No API keys. No accounts.</h2>
+    <p>Sloth Mode runs entirely on your own laptop. The AI is <b>Ollama</b> running the open-weight <b>Llama 3.2</b> model — your pasted text never leaves your machine. No external services, no sign-ups, nothing to pay for.</p>
+    <p class="muted" style="margin-top:8px">That's also why this page is just a showcase: the app itself lives on your computer, not on a server. The sloth would never make you upload your emails to the cloud — so there is no hosted demo to try here.</p>
+  </div>
+
+  <div class="card" id="run">
+    <h2>Run it yourself</h2>
+    <p>You need Python 3.10+ and <a href="https://ollama.com/download">Ollama</a>. Then:</p>
+    <pre>ollama pull llama3.2:1b
+git clone https://github.com/captaincpr9-bot/Sloth-Ai.git
+cd Sloth-Ai
+pip install -r requirements.txt
+python app.py
+# open http://localhost:5000</pre>
+    <p class="muted" style="margin-top:10px">The default model is <code>llama3.2:1b</code>, so it even runs on a low-RAM machine. Got a stronger machine? Pull any Ollama model — it shows up in the app's model selector automatically.</p>
+  </div>
+
+  <footer>
+    🦥 Sloth Mode — built for DEV × MLH Hacktoberfest Week 3, “Slow and Steady.”<br>
+    MIT licensed. Made for getting your time back.
+  </footer>
+
+</div>
+</body>
+</html>
